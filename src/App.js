@@ -6,27 +6,29 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-// State fusion at legit slice
+
     this.state = {
-      monsters: [
-        {
-          name: 'Linda',
-          id: '123eff',
-        },
-        {
-          name: 'Frank',
-          id: '123e2wff',
-        },
-        {
-          name: 'Jacky',
-          id: '123e56ff',
-        },
-        {
-          name: 'Andrei',
-          id: '123ef87f',
-        },
-      ],
+      monsters: [],
     };
+  }
+
+  // THINK ?????
+  // 1. When do I get the list?
+  // 2. How do I get the List?
+  // 3. Where do I put the list?
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => response.json())
+      .then((users) =>
+        this.setState(
+          () => {
+            return { monsters: users };
+          },
+          () => {
+            console.log(this.state);
+          }
+        )
+      );
   }
 
   render() {
