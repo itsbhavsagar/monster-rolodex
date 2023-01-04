@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-
+// State fusion at legit slice
     this.state = {
       monsters: [
         {
