@@ -9,7 +9,9 @@ class App extends Component {
 
     this.state = {
       monsters: [],
+      
     };
+    console.log('1');
   }
 
   // THINK ?????
@@ -17,6 +19,7 @@ class App extends Component {
   // 2. How do I get the List?
   // 3. Where do I put the list?
   componentDidMount() {
+    console.log('3');
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((users) =>
@@ -32,6 +35,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('2');
     return (
       <div className="App">
         {this.state.monsters.map((monster) => {
