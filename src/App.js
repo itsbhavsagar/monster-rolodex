@@ -8,7 +8,6 @@ class App extends Component {
     this.state = {
       monsters: [],
     };
-    
   }
 
   // THINK ?????
@@ -16,7 +15,6 @@ class App extends Component {
   // 2. How do I get the List?
   // 3. Where do I put the list?
   componentDidMount() {
-    
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((users) =>
@@ -32,15 +30,17 @@ class App extends Component {
   }
 
   render() {
-   
     return (
       <div className="App">
         <input
           className="search-box"
           type="search"
           placeholder="search monsters"
-          onChange={(event) =>{
+          onChange={(event) => {
             console.log(event.target.value);
+            const filteredMonsters = this.state.monsters.filter((monster) => {
+              return monster.name.includes(event.target.value);
+            });
           }}
         />
         {this.state.monsters.map((monster) => {
