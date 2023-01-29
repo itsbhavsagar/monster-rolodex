@@ -23,9 +23,6 @@ class App extends Component {
         this.setState(
           () => {
             return { monsters: users };
-          },
-          () => {
-            // console.log(this.state);
           }
         )
       );
@@ -37,13 +34,11 @@ class App extends Component {
     this.setState(() => {
       return { searchField };
     });
-  }
+  };
 
   render() {
-console.log('render');
-
-const {monsters, searchField} = this.state;
-const {onSearchChange} =this;
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
 
     const filteredMonsters = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField);
@@ -65,7 +60,7 @@ const {onSearchChange} =this;
           );
         })} */}
 
-        <CardList />
+        <CardList monsters={filteredMonsters}/>
       </div>
     );
   }
